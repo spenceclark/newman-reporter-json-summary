@@ -1,0 +1,260 @@
+  1 {
+  2   "definitions": {},
+  3   "$schema": "http://json-schema.org/draft-07/schema#",
+  4   "$id": "http://example.com/root.json",
+  5   "type": "object",
+  6   "title": "The Root Schema",
+  7   "required": [
+  8     "Collection",
+  9     "Run"
+ 10   ],
+ 11   "properties": {
+ 12     "Collection": {
+ 13       "$id": "#/properties/Collection",
+ 14       "type": "object",
+ 15       "title": "The Collection Schema",
+ 16       "required": [
+ 17         "Info"
+ 18       ],
+ 19       "properties": {
+ 20         "Info": {
+ 21           "$id": "#/properties/Collection/properties/Info",
+ 22           "type": "object",
+ 23           "title": "The Info Schema",
+ 24           "required": [
+ 25             "Name"
+ 26           ],
+ 27           "properties": {
+ 28             "Name": {
+ 29               "$id": "#/properties/Collection/properties/Info/properties/Name",
+ 30               "type": "string",
+ 31               "title": "The Name Schema",
+ 32               "default": "",
+ 33               "examples": [
+ 34                 "Test Pack A"
+ 35               ],
+ 36               "pattern": "^(.*)$"
+ 37             }
+ 38           }
+ 39         }
+ 40       }
+ 41     },
+ 42     "Run": {
+ 43       "$id": "#/properties/Run",
+ 44       "type": "object",
+ 45       "title": "The Run Schema",
+ 46       "required": [
+ 47         "Stats",
+ 48         "Failures",
+ 49         "Timings"
+ 50       ],
+ 51       "properties": {
+ 52         "Stats": {
+ 53           "$id": "#/properties/Run/properties/Stats",
+ 54           "type": "object",
+ 55           "title": "The Stats Schema",
+ 56           "required": [
+ 57             "Requests",
+ 58             "Assertions"
+ 59           ],
+ 60           "properties": {
+ 61             "Requests": {
+ 62               "$id": "#/properties/Run/properties/Stats/properties/Requests",
+ 63               "type": "object",
+ 64               "title": "The Requests Schema",
+ 65               "required": [
+ 66                 "total",
+ 67                 "pending",
+ 68                 "failed"
+ 69               ],
+ 70               "properties": {
+ 71                 "total": {
+ 72                   "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/total",
+ 73                   "type": "integer",
+ 74                   "title": "The Total Schema",
+ 75                   "default": 0,
+ 76                   "examples": [
+ 77                     3
+ 78                   ]
+ 79                 },
+ 80                 "pending": {
+ 81                   "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/pending",
+ 82                   "type": "integer",
+ 83                   "title": "The Pending Schema",
+ 84                   "default": 0,
+ 85                   "examples": [
+ 86                     0
+ 87                   ]
+ 88                 },
+ 89                 "failed": {
+ 90                   "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/failed",
+ 91                   "type": "integer",
+ 92                   "title": "The Failed Schema",
+ 93                   "default": 0,
+ 94                   "examples": [
+ 95                     0
+ 96                   ]
+ 97                 }
+ 98               }
+ 99             },
+100             "Assertions": {
+101               "$id": "#/properties/Run/properties/Stats/properties/Assertions",
+102               "type": "object",
+103               "title": "The Assertions Schema",
+104               "required": [
+105                 "total",
+106                 "pending",
+107                 "failed"
+108               ],
+109               "properties": {
+110                 "total": {
+111                   "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/total",
+112                   "type": "integer",
+113                   "title": "The Total Schema",
+114                   "default": 0,
+115                   "examples": [
+116                     12
+117                   ]
+118                 },
+119                 "pending": {
+120                   "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/pending",
+121                   "type": "integer",
+122                   "title": "The Pending Schema",
+123                   "default": 0,
+124                   "examples": [
+125                     0
+126                   ]
+127                 },
+128                 "failed": {
+129                   "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/failed",
+130                   "type": "integer",
+131                   "title": "The Failed Schema",
+132                   "default": 0,
+133                   "examples": [
+134                     1
+135                   ]
+136                 }
+137               }
+138             }
+139           }
+140         },
+141         "Failures": {
+142           "$id": "#/properties/Run/properties/Failures",
+143           "type": "array",
+144           "title": "The Failures Schema",
+145           "items": {
+146             "$id": "#/properties/Run/properties/Failures/items",
+147             "type": "object",
+148             "title": "The Items Schema",
+149             "required": [
+150               "Parent",
+151               "Source",
+152               "Error"
+153             ],
+154             "properties": {
+155               "Parent": {
+156                 "$id": "#/properties/Run/properties/Failures/items/properties/Parent",
+157                 "type": "object",
+158                 "title": "The Parent Schema",
+159                 "required": [
+160                   "Name"
+161                 ],
+162                 "properties": {
+163                   "Name": {
+164                     "$id": "#/properties/Run/properties/Failures/items/properties/Parent/properties/Name",
+165                     "type": "string",
+166                     "title": "The Name Schema",
+167                     "default": "",
+168                     "examples": [
+169                       "Test Pack A"
+170                     ],
+171                     "pattern": "^(.*)$"
+172                   }
+173                 }
+174               },
+175               "Source": {
+176                 "$id": "#/properties/Run/properties/Failures/items/properties/Source",
+177                 "type": "object",
+178                 "title": "The Source Schema",
+179                 "required": [
+180                   "Name"
+181                 ],
+182                 "properties": {
+183                   "Name": {
+184                     "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Name",
+185                     "type": "string",
+186                     "title": "The Name Schema",
+187                     "default": "",
+188                     "examples": [
+189                       "Get Clients"
+190                     ],
+191                     "pattern": "^(.*)$"
+192                   }
+193                 }
+194               },
+195               "Error": {
+196                 "$id": "#/properties/Run/properties/Failures/items/properties/Error",
+197                 "type": "object",
+198                 "title": "The Error Schema",
+199                 "required": [
+200                   "Message"
+201                 ],
+202                 "properties": {
+203                   "Message": {
+204                     "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Message",
+205                     "type": "string",
+206                     "title": "The Message Schema",
+207                     "default": "",
+208                     "examples": [
+209                       "expected 0 to deeply equal 1"
+210                     ],
+211                     "pattern": "^(.*)$"
+212                   }
+213                 }
+214               }
+215             }
+216           }
+217         },
+218         "Timings": {
+219           "$id": "#/properties/Run/properties/Timings",
+220           "type": "object",
+221           "title": "The Timings Schema",
+222           "required": [
+223             "responseAverage",
+224             "started",
+225             "completed"
+226           ],
+227           "properties": {
+228             "responseAverage": {
+229               "$id": "#/properties/Run/properties/Timings/properties/responseAverage",
+230               "type": "number",
+231               "title": "The Responseaverage Schema",
+232               "default": 0.0,
+233               "examples": [
+234                 372.3333333333333
+235               ]
+236             },
+237             "started": {
+238               "$id": "#/properties/Run/properties/Timings/properties/started",
+239               "type": "integer",
+240               "title": "The Started Schema",
+241               "default": 0,
+242               "examples": [
+243                 1543399933123
+244               ]
+245             },
+246             "completed": {
+247               "$id": "#/properties/Run/properties/Timings/properties/completed",
+248               "type": "integer",
+249               "title": "The Completed Schema",
+250               "default": 0,
+251               "examples": [
+252                 1543399934528
+253               ]
+254             }
+255           }
+256         }
+257       }
+258     }
+259   }
+260 }
