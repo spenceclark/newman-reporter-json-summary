@@ -1,0 +1,23 @@
+{
+  "name": "newman-reporter-json-summary",
+  "version": "1.0.6",
+  "description": "A custom Newman Reporter that just reports a summary of the results, rather than the whole structure (which can break JSON.stringify)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "newman",
+    "postman",
+    "reporter",
+    "json"
+  ],
+  "bugs": "https://github.com/spenceclark/newman-reporter-json-summary/issues",
+  "repository": "github:spenceclark/newman-reporter-json-summary",
+  "author": "spenceclark@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "newman": "^4.2.2"
+  }
+}
