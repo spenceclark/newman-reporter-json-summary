@@ -6,9 +6,10 @@ var _ = require('lodash');
     Run.Stats.Requests.*
     Run.Stats.Assertions.*
     Run.Timings.*
-    Run.Errors[n].Parent.Name
-    Run.Errors[n].Source.Name
-    Run.Errors[n].Error.Message
+    Run.Failures[n].Parent.Name
+    Run.Failures[n].Source.Name
+    Run.Failures[n].Error.Message
+    Run.Failures[n].Error.Test
  */
 
 function createSummary(summary) {
@@ -24,7 +25,8 @@ function createSummary(summary) {
                 'Name': failure.source.name
             },
             'Error': {
-                'Message': failure.error.message
+                'Message': failure.error.message,
+                'Test' : failure.error.test
             }
         });
     });

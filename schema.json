@@ -1,4 +1,4 @@
-  1 {
+1 {
   2   "definitions": {},
   3   "$schema": "http://json-schema.org/draft-07/schema#",
   4   "$id": "http://example.com/root.json",
@@ -31,7 +31,7 @@
  31               "title": "The Name Schema",
  32               "default": "",
  33               "examples": [
- 34                 "Test Pack A"
+ 34                 "Collection Name"
  35               ],
  36               "pattern": "^(.*)$"
  37             }
@@ -166,7 +166,7 @@
 166                     "title": "The Name Schema",
 167                     "default": "",
 168                     "examples": [
-169                       "Test Pack A"
+169                       "Folder Name"
 170                     ],
 171                     "pattern": "^(.*)$"
 172                   }
@@ -178,83 +178,94 @@
 178                 "title": "The Source Schema",
 179                 "required": [
 180                   "Name"
-181                 ],
-182                 "properties": {
-183                   "Name": {
-184                     "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Name",
-185                     "type": "string",
-186                     "title": "The Name Schema",
-187                     "default": "",
-188                     "examples": [
-189                       "Get Clients"
-190                     ],
-191                     "pattern": "^(.*)$"
-192                   }
-193                 }
-194               },
-195               "Error": {
-196                 "$id": "#/properties/Run/properties/Failures/items/properties/Error",
-197                 "type": "object",
-198                 "title": "The Error Schema",
-199                 "required": [
-200                   "Message"
-201                 ],
-202                 "properties": {
-203                   "Message": {
-204                     "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Message",
-205                     "type": "string",
-206                     "title": "The Message Schema",
-207                     "default": "",
-208                     "examples": [
-209                       "expected 0 to deeply equal 1"
-210                     ],
-211                     "pattern": "^(.*)$"
-212                   }
-213                 }
-214               }
-215             }
-216           }
-217         },
-218         "Timings": {
-219           "$id": "#/properties/Run/properties/Timings",
-220           "type": "object",
-221           "title": "The Timings Schema",
-222           "required": [
-223             "responseAverage",
-224             "started",
-225             "completed"
-226           ],
-227           "properties": {
-228             "responseAverage": {
-229               "$id": "#/properties/Run/properties/Timings/properties/responseAverage",
-230               "type": "number",
-231               "title": "The Responseaverage Schema",
-232               "default": 0.0,
-233               "examples": [
-234                 372.3333333333333
-235               ]
-236             },
-237             "started": {
-238               "$id": "#/properties/Run/properties/Timings/properties/started",
-239               "type": "integer",
-240               "title": "The Started Schema",
-241               "default": 0,
-242               "examples": [
-243                 1543399933123
-244               ]
-245             },
-246             "completed": {
-247               "$id": "#/properties/Run/properties/Timings/properties/completed",
-248               "type": "integer",
-249               "title": "The Completed Schema",
-250               "default": 0,
-251               "examples": [
-252                 1543399934528
-253               ]
-254             }
-255           }
-256         }
-257       }
-258     }
-259   }
-260 }
+182                 ],
+183                 "properties": {
+184                   "Name": {
+185                     "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Name",
+186                     "type": "string",
+187                     "title": "The Name Schema",
+188                     "default": "",
+189                     "examples": [
+190                       "Request Name"
+191                     ],
+192                     "pattern": "^(.*)$"
+193                   }
+204                 }
+205               },
+206               "Error": {
+207                 "$id": "#/properties/Run/properties/Failures/items/properties/Error",
+208                 "type": "object",
+209                 "title": "The Error Schema",
+210                 "required": [
+211                   "Message",
+212                   "Test"
+213                 ],
+214                 "properties": {
+215                   "Message": {
+216                     "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Message",
+217                     "type": "string",
+218                     "title": "The Message Schema",
+219                     "default": "",
+220                     "examples": [
+221                       "expected 0 to deeply equal 1"
+222                     ],
+223                     "pattern": "^(.*)$"
+224                   },
+225                   "Test": {
+226                     "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Test",
+227                     "type": "string",
+228                     "title": "The Test Schema",
+229                     "default": "",
+230                     "examples": [
+231                       "Test Name"
+232                     ],
+233                     "pattern": "^(.*)$"
+234                   }
+235                 }
+236               }
+237             }
+238           }
+239         },
+240         "Timings": {
+241           "$id": "#/properties/Run/properties/Timings",
+242           "type": "object",
+243           "title": "The Timings Schema",
+244           "required": [
+245             "responseAverage",
+246             "started",
+247             "completed"
+248           ],
+249           "properties": {
+250             "responseAverage": {
+251               "$id": "#/properties/Run/properties/Timings/properties/responseAverage",
+252               "type": "integer",
+253               "title": "The Responseaverage Schema",
+254               "default": 0,
+255               "examples": [
+256                 168
+257               ]
+258             },
+259             "started": {
+260               "$id": "#/properties/Run/properties/Timings/properties/started",
+261               "type": "integer",
+262               "title": "The Started Schema",
+263               "default": 0,
+264               "examples": [
+265                 1543936863369
+266               ]
+267             },
+268             "completed": {
+269               "$id": "#/properties/Run/properties/Timings/properties/completed",
+270               "type": "integer",
+271               "title": "The Completed Schema",
+272               "default": 0,
+273               "examples": [
+274                 1543936864161
+275               ]
+276             }
+277           }
+278         }
+279       }
+280     }
+281   }
+282 }
