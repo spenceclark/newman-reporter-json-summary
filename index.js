@@ -7,7 +7,9 @@ var _ = require('lodash');
     Run.Stats.Assertions.*
     Run.Timings.*
     Run.Failures[n].Parent.Name
+    Run.Failures[n].Parent.Id
     Run.Failures[n].Source.Name
+    Run.Failures[n].Source.Id
     Run.Failures[n].Error.Message
     Run.Failures[n].Error.Test
  */
@@ -19,10 +21,12 @@ function createSummary(summary) {
     summary.run.failures.forEach(function(failure) {
         failures.push({
             'Parent': {
-                'Name': failure.parent.name
+                'Name': failure.parent.name,
+                'Id' : failure.parent.id
             },
             'Source': {
-                'Name': failure.source.name
+                'Name': failure.source.name,
+                'Id' : failure.source.id
             },
             'Error': {
                 'Message': failure.error.message,

@@ -10,7 +10,9 @@ This outputs:
 - `Run.Stats.Assertions.*`
 - `Run.Timings.*`
 - `Run.Failures[n].Parent.Name`
+- `Run.Failures[n].Parent.Id`
 - `Run.Failures[n].Source.Name`
+- `Run.Failures[n].Source.Id`
 - `Run.Failures[n].Error.Message`
 - `Run.Failures[n].Error.Test`
 
