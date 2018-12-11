@@ -6,6 +6,7 @@ It is needed where large test packs which generate 1000's of tests results can b
 This outputs:
 
 - `Collection.Info.Name`
+- `Collection.Info.Id`
 - `Run.Stats.Requests.*`
 - `Run.Stats.Assertions.*`
 - `Run.Timings.*`

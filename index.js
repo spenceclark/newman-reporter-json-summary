@@ -3,6 +3,7 @@ var _ = require('lodash');
 /*
     JSON Reporter that reports just the Summary Info
     Collection.Info.Name
+    Collection.Info.Id
     Run.Stats.Requests.*
     Run.Stats.Assertions.*
     Run.Timings.*
@@ -40,7 +41,8 @@ function createSummary(summary) {
     Object.assign(result, {
         'Collection': {
             'Info': {
-                'Name': summary.collection.name
+                'Name': summary.collection.name,
+                'Id': summary.collection.id
             }
         },
         'Run': {
