@@ -1,293 +1,304 @@
-1 {
-    2   "definitions": {},
-    3   "$schema": "http://json-schema.org/draft-07/schema#",
-    4   "$id": "http://example.com/root.json",
-    5   "type": "object",
-    6   "title": "The Root Schema",
-    7   "required": [
-    8     "Collection",
-    9     "Run"
-   10   ],
-   11   "properties": {
-   12     "Collection": {
-   13       "$id": "#/properties/Collection",
-   14       "type": "object",
-   15       "title": "The Collection Schema",
-   16       "required": [
-   17         "Info"
-   18       ],
-   19       "properties": {
-   20         "Info": {
-   21           "$id": "#/properties/Collection/properties/Info",
-   22           "type": "object",
-   23           "title": "The Info Schema",
-   24           "required": [
-   25             "Name"
-   26           ],
-   27           "properties": {
-   28             "Name": {
-   29               "$id": "#/properties/Collection/properties/Info/properties/Name",
-   30               "type": "string",
-   31               "title": "The Name Schema",
-   32               "default": "",
-   33               "examples": [
-   34                 "Collection Name"
-   35               ],
-   36               "pattern": "^(.*)$"
-   37             }
-   38           }
-   39         }
-   40       }
-   41     },
-   42     "Run": {
-   43       "$id": "#/properties/Run",
-   44       "type": "object",
-   45       "title": "The Run Schema",
-   46       "required": [
-   47         "Stats",
-   48         "Failures",
-   49         "Timings"
-   50       ],
-   51       "properties": {
-   52         "Stats": {
-   53           "$id": "#/properties/Run/properties/Stats",
-   54           "type": "object",
-   55           "title": "The Stats Schema",
-   56           "required": [
-   57             "Requests",
-   58             "Assertions"
-   59           ],
-   60           "properties": {
-   61             "Requests": {
-   62               "$id": "#/properties/Run/properties/Stats/properties/Requests",
-   63               "type": "object",
-   64               "title": "The Requests Schema",
-   65               "required": [
-   66                 "total",
-   67                 "pending",
-   68                 "failed"
-   69               ],
-   70               "properties": {
-   71                 "total": {
-   72                   "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/total",
-   73                   "type": "integer",
-   74                   "title": "The Total Schema",
-   75                   "default": 0,
-   76                   "examples": [
-   77                     3
-   78                   ]
-   79                 },
-   80                 "pending": {
-   81                   "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/pending",
-   82                   "type": "integer",
-   83                   "title": "The Pending Schema",
-   84                   "default": 0,
-   85                   "examples": [
-   86                     0
-   87                   ]
-   88                 },
-   89                 "failed": {
-   90                   "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/failed",
-   91                   "type": "integer",
-   92                   "title": "The Failed Schema",
-   93                   "default": 0,
-   94                   "examples": [
-   95                     0
-   96                   ]
-   97                 }
-   98               }
-   99             },
-  100             "Assertions": {
-  101               "$id": "#/properties/Run/properties/Stats/properties/Assertions",
-  102               "type": "object",
-  103               "title": "The Assertions Schema",
-  104               "required": [
-  105                 "total",
-  106                 "pending",
-  107                 "failed"
-  108               ],
-  109               "properties": {
-  110                 "total": {
-  111                   "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/total",
-  112                   "type": "integer",
-  113                   "title": "The Total Schema",
-  114                   "default": 0,
-  115                   "examples": [
-  116                     12
-  117                   ]
-  118                 },
-  119                 "pending": {
-  120                   "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/pending",
-  121                   "type": "integer",
-  122                   "title": "The Pending Schema",
-  123                   "default": 0,
-  124                   "examples": [
-  125                     0
-  126                   ]
-  127                 },
-  128                 "failed": {
-  129                   "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/failed",
-  130                   "type": "integer",
-  131                   "title": "The Failed Schema",
-  132                   "default": 0,
-  133                   "examples": [
-  134                     1
-  135                   ]
-  136                 }
-  137               }
-  138             }
-  139           }
-  140         },
-  141         "Failures": {
-  142           "$id": "#/properties/Run/properties/Failures",
-  143           "type": "array",
-  144           "title": "The Failures Schema",
-  145           "items": {
-  146             "$id": "#/properties/Run/properties/Failures/items",
-  147             "type": "object",
-  148             "title": "The Items Schema",
-  149             "required": [
-  150               "Parent",
-  151               "Source",
-  152               "Error"
-  153             ],
-  154             "properties": {
-  155               "Parent": {
-  156                 "$id": "#/properties/Run/properties/Failures/items/properties/Parent",
-  157                 "type": "object",
-  158                 "title": "The Parent Schema",
-  159                 "required": [
-  160                   "Name",
-  161                   "Id"
-  162                 ],
-  163                 "properties": {
-  164                   "Name": {
-  165                     "$id": "#/properties/Run/properties/Failures/items/properties/Parent/properties/Name",
-  166                     "type": "string",
-  167                     "title": "The Name Schema",
-  168                     "default": "",
-  169                     "examples": [
-  170                       "Folder Name"
-  171                     ],
-  172                     "pattern": "^(.*)$"
-  173                   },
-  174                   "Id": {
-  175                     "$id": "#/properties/Run/properties/Failures/items/properties/Parent/properties/Id",
-  176                     "type": "string",
-  177                     "title": "The Id Schema",
-  178                     "default": "",
-  179                     "examples": [
-  180                       "609d26b5-0de5-4d9d-b4c4-f1e6fd23d4d8"
-  181                     ],
-  182                     "pattern": "^(.*)$"
-  183                   }
-  184                 }
-  185               },
-  186               "Source": {
-  187                 "$id": "#/properties/Run/properties/Failures/items/properties/Source",
-  188                 "type": "object",
-  189                 "title": "The Source Schema",
-  190                 "required": [
-  191                   "Name",
-  192                   "Id"
-  193                 ],
-  194                 "properties": {
-  195                   "Name": {
-  196                     "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Name",
-  197                     "type": "string",
-  198                     "title": "The Name Schema",
-  199                     "default": "",
-  200                     "examples": [
-  201                       "Request Name"
-  202                     ],
-  203                     "pattern": "^(.*)$"
-  204                   },
-  205                   "Id": {
-  206                     "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Id",
-  207                     "type": "string",
-  208                     "title": "The Id Schema",
-  209                     "default": "",
-  210                     "examples": [
-  211                       "7a1f3a7b-e7e8-4a8c-b249-ba5527c63b7f"
-  212                     ],
-  213                     "pattern": "^(.*)$"
-  214                   }
-  215                 }
-  216               },
-  217               "Error": {
-  218                 "$id": "#/properties/Run/properties/Failures/items/properties/Error",
-  219                 "type": "object",
-  220                 "title": "The Error Schema",
-  221                 "required": [
-  222                   "Message",
-  223                   "Test"
-  224                 ],
-  225                 "properties": {
-  226                   "Message": {
-  227                     "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Message",
-  228                     "type": "string",
-  229                     "title": "The Message Schema",
-  230                     "default": "",
-  231                     "examples": [
-  232                       "expected 0 to deeply equal 1"
-  233                     ],
-  234                     "pattern": "^(.*)$"
-  235                   },
-  236                   "Test": {
-  237                     "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Test",
-  238                     "type": "string",
-  239                     "title": "The Test Schema",
-  240                     "default": "",
-  241                     "examples": [
-  242                       "Test Name"
-  243                     ],
-  244                     "pattern": "^(.*)$"
-  245                   }
-  246                 }
-  247               }
-  248             }
-  249           }
-  250         },
-  251         "Timings": {
-  252           "$id": "#/properties/Run/properties/Timings",
-  253           "type": "object",
-  254           "title": "The Timings Schema",
-  255           "required": [
-  256             "responseAverage",
-  257             "started",
-  258             "completed"
-  259           ],
-  260           "properties": {
-  261             "responseAverage": {
-  262               "$id": "#/properties/Run/properties/Timings/properties/responseAverage",
-  263               "type": "integer",
-  264               "title": "The Responseaverage Schema",
-  265               "default": 0,
-  266               "examples": [
-  267                 162
-  268               ]
-  269             },
-  270             "started": {
-  271               "$id": "#/properties/Run/properties/Timings/properties/started",
-  272               "type": "integer",
-  273               "title": "The Started Schema",
-  274               "default": 0,
-  275               "examples": [
-  276                 1544105237337
-  277               ]
-  278             },
-  279             "completed": {
-  280               "$id": "#/properties/Run/properties/Timings/properties/completed",
-  281               "type": "integer",
-  282               "title": "The Completed Schema",
-  283               "default": 0,
-  284               "examples": [
-  285                 1544105238307
-  286               ]
-  287             }
-  288           }
-  289         }
-  290       }
-  291     }
-  292   }
-  293 }
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+      "Collection",
+      "Run"
+    ],
+    "properties": {
+      "Collection": {
+        "$id": "#/properties/Collection",
+        "type": "object",
+        "title": "The Collection Schema",
+        "required": [
+          "Info"
+        ],
+        "properties": {
+          "Info": {
+            "$id": "#/properties/Collection/properties/Info",
+            "type": "object",
+            "title": "The Info Schema",
+            "required": [
+              "Name",
+              "Id"
+            ],
+            "properties": {
+              "Name": {
+                "$id": "#/properties/Collection/properties/Info/properties/Name",
+                "type": "string",
+                "title": "The Name Schema",
+                "default": "",
+                "examples": [
+                  "Collection Name"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "Id": {
+                "$id": "#/properties/Collection/properties/Info/properties/Id",
+                "type": "string",
+                "title": "The Id Schema",
+                "default": "",
+                "examples": [
+                  "f5ea9840-5eb1-4edc-8294-688c40b7db41"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      },
+      "Run": {
+        "$id": "#/properties/Run",
+        "type": "object",
+        "title": "The Run Schema",
+        "required": [
+          "Stats",
+          "Failures",
+          "Timings"
+        ],
+        "properties": {
+          "Stats": {
+            "$id": "#/properties/Run/properties/Stats",
+            "type": "object",
+            "title": "The Stats Schema",
+            "required": [
+              "Requests",
+              "Assertions"
+            ],
+            "properties": {
+              "Requests": {
+                "$id": "#/properties/Run/properties/Stats/properties/Requests",
+                "type": "object",
+                "title": "The Requests Schema",
+                "required": [
+                  "total",
+                  "pending",
+                  "failed"
+                ],
+                "properties": {
+                  "total": {
+                    "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/total",
+                    "type": "integer",
+                    "title": "The Total Schema",
+                    "default": 0,
+                    "examples": [
+                      3
+                    ]
+                  },
+                  "pending": {
+                    "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/pending",
+                    "type": "integer",
+                    "title": "The Pending Schema",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "failed": {
+                    "$id": "#/properties/Run/properties/Stats/properties/Requests/properties/failed",
+                    "type": "integer",
+                    "title": "The Failed Schema",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  }
+                }
+              },
+              "Assertions": {
+                "$id": "#/properties/Run/properties/Stats/properties/Assertions",
+                "type": "object",
+                "title": "The Assertions Schema",
+                "required": [
+                  "total",
+                  "pending",
+                  "failed"
+                ],
+                "properties": {
+                  "total": {
+                    "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/total",
+                    "type": "integer",
+                    "title": "The Total Schema",
+                    "default": 0,
+                    "examples": [
+                      12
+                    ]
+                  },
+                  "pending": {
+                    "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/pending",
+                    "type": "integer",
+                    "title": "The Pending Schema",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "failed": {
+                    "$id": "#/properties/Run/properties/Stats/properties/Assertions/properties/failed",
+                    "type": "integer",
+                    "title": "The Failed Schema",
+                    "default": 0,
+                    "examples": [
+                      1
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "Failures": {
+            "$id": "#/properties/Run/properties/Failures",
+            "type": "array",
+            "title": "The Failures Schema",
+            "items": {
+              "$id": "#/properties/Run/properties/Failures/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "Parent",
+                "Source",
+                "Error"
+              ],
+              "properties": {
+                "Parent": {
+                  "$id": "#/properties/Run/properties/Failures/items/properties/Parent",
+                  "type": "object",
+                  "title": "The Parent Schema",
+                  "required": [
+                    "Name",
+                    "Id"
+                  ],
+                  "properties": {
+                    "Name": {
+                      "$id": "#/properties/Run/properties/Failures/items/properties/Parent/properties/Name",
+                      "type": "string",
+                      "title": "The Name Schema",
+                      "default": "",
+                      "examples": [
+                        "Folder Name"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "Id": {
+                      "$id": "#/properties/Run/properties/Failures/items/properties/Parent/properties/Id",
+                      "type": "string",
+                      "title": "The Id Schema",
+                      "default": "",
+                      "examples": [
+                        "609d26b5-0de5-4d9d-b4c4-f1e6fd23d4d8"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                },
+                "Source": {
+                  "$id": "#/properties/Run/properties/Failures/items/properties/Source",
+                  "type": "object",
+                  "title": "The Source Schema",
+                  "required": [
+                    "Name",
+                    "Id"
+                  ],
+                  "properties": {
+                    "Name": {
+                      "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Name",
+                      "type": "string",
+                      "title": "The Name Schema",
+                      "default": "",
+                      "examples": [
+                        "Request Name"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "Id": {
+                      "$id": "#/properties/Run/properties/Failures/items/properties/Source/properties/Id",
+                      "type": "string",
+                      "title": "The Id Schema",
+                      "default": "",
+                      "examples": [
+                        "7a1f3a7b-e7e8-4a8c-b249-ba5527c63b7f"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                },
+                "Error": {
+                  "$id": "#/properties/Run/properties/Failures/items/properties/Error",
+                  "type": "object",
+                  "title": "The Error Schema",
+                  "required": [
+                    "Message",
+                    "Test"
+                  ],
+                  "properties": {
+                    "Message": {
+                      "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Message",
+                      "type": "string",
+                      "title": "The Message Schema",
+                      "default": "",
+                      "examples": [
+                        "expected 0 to deeply equal 1"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "Test": {
+                      "$id": "#/properties/Run/properties/Failures/items/properties/Error/properties/Test",
+                      "type": "string",
+                      "title": "The Test Schema",
+                      "default": "",
+                      "examples": [
+                        "Assertion Name"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Timings": {
+            "$id": "#/properties/Run/properties/Timings",
+            "type": "object",
+            "title": "The Timings Schema",
+            "required": [
+              "responseAverage",
+              "started",
+              "completed"
+            ],
+            "properties": {
+              "responseAverage": {
+                "$id": "#/properties/Run/properties/Timings/properties/responseAverage",
+                "type": "number",
+                "title": "The Responseaverage Schema",
+                "default": 0.0,
+                "examples": [
+                  202.66666666666666
+                ]
+              },
+              "started": {
+                "$id": "#/properties/Run/properties/Timings/properties/started",
+                "type": "integer",
+                "title": "The Started Schema",
+                "default": 0,
+                "examples": [
+                  1544531868376
+                ]
+              },
+              "completed": {
+                "$id": "#/properties/Run/properties/Timings/properties/completed",
+                "type": "integer",
+                "title": "The Completed Schema",
+                "default": 0,
+                "examples": [
+                  1544531869250
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
