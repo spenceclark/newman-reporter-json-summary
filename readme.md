@@ -20,7 +20,7 @@ This outputs:
 ---
 
 Usage:
-> newman run *collection* -r **json-summary** --**reporter-json-summary-export** *output*
+> newman run *collection* -r **json-summary** --**reporter-summary-json-export** *output*
 
 *Note: If reporter-json-summary-export parameter is not supplied, the output is written to a "newman" sub-folder and the file will contain the timestamp in its name*
 
