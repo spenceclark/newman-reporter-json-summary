@@ -1,6 +1,6 @@
 {
   "name": "newman-reporter-json-summary",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A custom Newman Reporter that just reports a summary of the results, rather than the whole structure (which can break JSON.stringify)",
   "main": "index.js",
   "scripts": {
