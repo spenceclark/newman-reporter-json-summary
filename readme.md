@@ -19,8 +19,16 @@ This outputs:
 
 ---
 
+Install:
+
+```
+npm i newman-reporter-json-summary
+```
+
 Usage:
-> newman run *collection* -r **json-summary** --**reporter-summary-json-export** *output*
+```
+newman run *collection* -r **json-summary** --**reporter-summary-json-export** *output*
+```
 
 *Note: If reporter-summary-json-export parameter is not supplied, the output is written to a "newman" sub-folder and the file will contain the timestamp in its name*
 
