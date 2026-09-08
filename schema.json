@@ -167,10 +167,6 @@
                   "$id": "#/properties/Run/properties/Failures/items/properties/Parent",
                   "type": "object",
                   "title": "The Parent Schema",
-                  "required": [
-                    "Name",
-                    "Id"
-                  ],
                   "properties": {
                     "Name": {
                       "$id": "#/properties/Run/properties/Failures/items/properties/Parent/properties/Name",
@@ -230,8 +226,7 @@
                   "type": "object",
                   "title": "The Error Schema",
                   "required": [
-                    "Message",
-                    "Test"
+                    "Message"
                   ],
                   "properties": {
                     "Message": {
