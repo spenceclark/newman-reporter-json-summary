@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 /*
     JSON Reporter that reports just the Summary Info
     Collection.Info.Name
@@ -16,29 +14,26 @@ var _ = require('lodash');
  */
 
 function createSummary(summary) {
-    
-    // Just pull out the miminum parts for each failure
-    var failures = [];
-    summary.run.failures.forEach(function(failure) {
-        failures.push({
+    // Just pull out the minimum parts for each failure.
+    // parent/source can be undefined for failures in pre-request scripts (#12).
+    var failures = (summary.run.failures || []).map(function(failure) {
+        return {
             'Parent': {
-                'Name': failure.parent.name,
-                'Id' : failure.parent.id
+                'Name': failure.parent?.name,
+                'Id': failure.parent?.id
             },
             'Source': {
-                'Name': failure.source.name,
-                'Id' : failure.source.id
+                'Name': failure.source?.name,
+                'Id': failure.source?.id
             },
             'Error': {
-                'Message': failure.error.message,
-                'Test' : failure.error.test
+                'Message': failure.error?.message,
+                'Test': failure.error?.test
             }
-        });
+        };
     });
 
-    // Build main object with just the bits needed plus the slimmed down failures
-    var result = {};
-    Object.assign(result, {
+    return {
         'Collection': {
             'Info': {
                 'Name': summary.collection.name,
@@ -47,14 +42,13 @@ function createSummary(summary) {
         },
         'Run': {
             'Stats': {
-                "Requests" : summary.run.stats.requests,
-                "Assertions" : summary.run.stats.assertions
+                'Requests': summary.run.stats.requests,
+                'Assertions': summary.run.stats.assertions
             },
             'Failures': failures,
-            'Timings' : summary.run.timings
+            'Timings': summary.run.timings
         }
-    });
-    return result;
+    };
 }
 
 module.exports = function(newman, options) {
@@ -64,8 +58,11 @@ module.exports = function(newman, options) {
         newman.exports.push({
             name: 'newman-reporter-json-summary',
             default: 'summary.json',
-            path:  options.summaryJsonExport,
-            content: JSON.stringify(createSummary(data.summary))
+            path: options.summaryJsonExport,
+            // Trailing newline so line-oriented consumers (e.g. Filebeat) pick the file up (#8)
+            content: JSON.stringify(createSummary(data.summary)) + '\n'
         });
     });
 };
+
+module.exports.createSummary = createSummary;
